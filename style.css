@@ -1,12 +1,5 @@
-/* =========================================================
-   WEATHER DASHBOARD — STYLES
-   Organized in sections: Reset, Layout, Background, 
-   Header, Search, Loader, Error, Weather Card, Footer, 
-   Responsive Media Queries
-   ========================================================= */
 
-/* ----- 1. Reset & Base Styles ----- */
-* {
+ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,11 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ----- 2. Animated Gradient Background -----
-   A fixed full-screen layer sits behind everything.
-   Its background is changed via JavaScript (adding a class)
-   depending on the current weather condition. Transition
-   makes the color change feel smooth instead of instant. */
+
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -39,7 +28,7 @@ body {
 .bg-layer.weather-thunder { background: linear-gradient(135deg, #232526 0%, #414345 100%); }
 .bg-layer.weather-night   { background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); }
 
-/* ----- 3. Page Layout (Flexbox column) ----- */
+
 .page {
   max-width: 720px;
   margin: 0 auto;
@@ -50,7 +39,7 @@ body {
   gap: 24px;
 }
 
-/* ----- 4. Header ----- */
+
 .app-header {
   text-align: center;
   animation: fadeInDown 0.6s ease-out;
@@ -77,7 +66,7 @@ body {
   font-size: 0.95rem;
 }
 
-/* ----- 5. Search Card (glassmorphism style) ----- */
+
 .search-card {
   width: 100%;
   background: rgba(255, 255, 255, 0.15);
@@ -170,7 +159,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* ----- 6. Loading Spinner ----- */
+
 .loader-wrap {
   display: flex;
   flex-direction: column;
@@ -198,7 +187,7 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* ----- 7. Error Message ----- */
+
 .error-box {
   width: 100%;
   display: flex;
@@ -228,7 +217,7 @@ body {
   80% { transform: translateX(4px); }
 }
 
-/* ----- 8. Weather Card ----- */
+
 .weather-card {
   width: 100%;
   background: rgba(255, 255, 255, 0.15);
@@ -246,7 +235,7 @@ body {
   transform: translateY(-4px);
 }
 
-/* Top row: name/date on the left, icon on the right (Flexbox) */
+
 .weather-top {
   display: flex;
   align-items: center;
@@ -279,7 +268,7 @@ body {
   50% { transform: translateY(-6px); }
 }
 
-/* Main temperature block (Flexbox) */
+
 .weather-main {
   display: flex;
   align-items: center;
@@ -305,7 +294,7 @@ body {
   margin-top: 4px;
 }
 
-/* Stats grid: 3 columns on desktop, adapts on smaller screens (CSS Grid) */
+
 .weather-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -346,7 +335,7 @@ body {
   margin-top: 2px;
 }
 
-/* ----- 9. Empty State ----- */
+
 .empty-state {
   text-align: center;
   opacity: 0.85;
@@ -360,7 +349,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* ----- 10. Footer ----- */
+
 .app-footer {
   margin-top: 10px;
   text-align: center;
@@ -368,12 +357,12 @@ body {
   opacity: 0.7;
 }
 
-/* ----- 11. Utility ----- */
+
 .hidden {
   display: none !important;
 }
 
-/* ----- 12. Shared Animations ----- */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -389,13 +378,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* =========================================================
-   RESPONSIVE BREAKPOINTS
-   Mobile-first tweaks are already default (single column).
-   Below we adjust for tablet and larger screens.
-   ========================================================= */
 
-/* Tablet and up */
 @media (min-width: 640px) {
   .app-title {
     font-size: 2.4rem;
@@ -411,7 +394,7 @@ body {
   }
 }
 
-/* Small mobile: stack search input/button and stats */
+
 @media (max-width: 420px) {
   .search-form {
     flex-direction: column;
@@ -422,7 +405,7 @@ body {
   }
 
   .weather-stats {
-    grid-template-columns: 1fr; /* stack stat boxes on very small screens */
+    grid-template-columns: 1fr; 
   }
 
   .weather-main {
@@ -432,7 +415,7 @@ body {
   }
 }
 
-/* Desktop: a little extra breathing room */
+
 @media (min-width: 1024px) {
   .page {
     padding-top: 48px;
