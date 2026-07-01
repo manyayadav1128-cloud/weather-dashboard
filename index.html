@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+
+  <!-- Google Font for a clean, modern look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Our own stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated gradient background layer (colors change via JS based on weather) -->
+  <div id="bg-layer" class="bg-layer"></div>
+
+  <main class="page">
+
+    <!-- ===== Header ===== -->
+    <header class="app-header">
+      <h1 class="app-title">
+        <span class="app-title-icon">⛅</span> Weather Dashboard
+      </h1>
+      <p class="app-subtitle">Check live weather for any city in the world</p>
+    </header>
+
+    <!-- ===== Search Box ===== -->
+    <section class="search-card">
+      <form id="search-form" class="search-form">
+        <input
+          type="text"
+          id="city-input"
+          class="search-input"
+          placeholder="Search a city e.g. London, Tokyo, New York..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit" class="search-btn" id="search-btn">
+          <span class="search-btn-text">Search</span>
+          <span class="search-btn-icon">🔍</span>
+        </button>
+      </form>
+
+      <!-- Quick city suggestions -->
+      <div class="quick-cities">
+        <button class="chip" data-city="London">London</button>
+        <button class="chip" data-city="New York">New York</button>
+        <button class="chip" data-city="Tokyo">Tokyo</button>
+        <button class="chip" data-city="Mumbai">Mumbai</button>
+        <button class="chip" data-city="Sydney">Sydney</button>
+      </div>
+    </section>
+
+    <!-- ===== Loading Spinner ===== -->
+    <div id="loader" class="loader-wrap hidden">
+      <div class="spinner"></div>
+      <p class="loader-text">Fetching weather data...</p>
+    </div>
+
+    <!-- ===== Error Message ===== -->
+    <div id="error-box" class="error-box hidden">
+      <span class="error-icon">⚠️</span>
+      <p id="error-text" class="error-text">City not found. Please check the spelling and try again.</p>
+    </div>
+
+    <!-- ===== Weather Card (populated by JavaScript) ===== -->
+    <section id="weather-card" class="weather-card hidden">
+
+      <!-- Top row: city name + date/time -->
+      <div class="weather-top">
+        <div>
+          <h2 id="city-name" class="city-name">--</h2>
+          <p id="date-time" class="date-time">--</p>
+        </div>
+        <img id="weather-icon" class="weather-icon" src="" alt="Weather icon" />
+      </div>
+
+      <!-- Main temperature + condition -->
+      <div class="weather-main">
+        <p id="temperature" class="temperature">--°C</p>
+        <div>
+          <p id="condition" class="condition">--</p>
+          <p id="feels-like" class="feels-like">Feels like --°C</p>
+        </div>
+      </div>
+
+      <!-- Stats grid: humidity, wind, pressure -->
+      <div class="weather-stats">
+        <div class="stat-box">
+          <span class="stat-icon">💧</span>
+          <div>
+            <p class="stat-label">Humidity</p>
+            <p id="humidity" class="stat-value">--%</p>
+          </div>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-icon">💨</span>
+          <div>
+            <p class="stat-label">Wind Speed</p>
+            <p id="wind-speed" class="stat-value">-- m/s</p>
+          </div>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-icon">🌡️</span>
+          <div>
+            <p class="stat-label">Pressure</p>
+            <p id="pressure" class="stat-value">-- hPa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Empty state (shown before first search) ===== -->
+    <div id="empty-state" class="empty-state">
+      <span class="empty-icon">🌍</span>
+      <p>Search for a city above to see its current weather.</p>
+    </div>
+
+    
+  </main>
+
+  <!-- Our own script (must load after the HTML elements exist) -->
+  <script src="script.js"></script>
+</body>
+</html>
